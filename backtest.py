@@ -427,7 +427,7 @@ if st.button("Run Backtest"):
         st.write("Max Drawdown Duration: {} bars".format(drawdown.max.len))
 
         try:
-            figs = cerebro.plot(iplot=False, volume=True, width=20, height=12, dpi=100)
+            figs = cerebro.plot(iplot=True, volume=True, width=20, height=12, dpi=100)
             for fig_list in figs:
                 for fig in fig_list:
                     st.pyplot(fig, use_container_width=True)
