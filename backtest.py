@@ -134,7 +134,7 @@ class BollingerRSIStrategy(bt.Strategy):
 
 class TestSMAStrategy(bt.Strategy):
     params = (
-        ('maperiod', 15),
+        ('maperiod', 30),
         ('printlog', False),
     )
 
@@ -210,7 +210,7 @@ class TestSMAStrategy(bt.Strategy):
         if not self.position:
 
             #buy conditions
-            if self.dataclose[0] > self.ema[0]:
+            if self.dataclose[0] > self.sma[0]:
                 self.log('BUY CREATE, %.2f' % self.dataclose[0])
                 #print(f"Dummy Indicator Value: {self.dummy.dummyline[0]}")
                 self.order = self.buy()
@@ -218,7 +218,7 @@ class TestSMAStrategy(bt.Strategy):
         else:
 
         #if already in the market, we might sell
-            if self.dataclose[0] < self.ema[0]:
+            if self.dataclose[0] < self.sma[0]:
                 #exit condition
                 self.log('SELL CREATE, %.2f' % self.dataclose[0])
 
