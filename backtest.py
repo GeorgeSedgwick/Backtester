@@ -412,9 +412,12 @@ if st.button("Run Backtest"):
         drawdown = strat.analyzers.drawdown.get_analysis()
         won = trade_analysis.won.total if 'won' in trade_analysis else 0
         lost = trade_analysis.lost.total if 'lost' in trade_analysis else 0
+        total_trades = trade_analysis.total.total
+        
         st.write("-------------------------------------")
         st.write(f"Wins: {won}")
         st.write(f"Losses: {lost}")
+        st.write(f"Total trades: {total_trades}")
 
         if lost == 0:
             st.write(f"Win/Loss Ratio: {won:.2f}")
